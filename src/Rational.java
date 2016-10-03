@@ -55,6 +55,44 @@ public class Rational {
 			    a.denom * b.denom);
     }
 
+     public static int lcm(int a, int b){;
+
+	 return Math.abs(a * b) / gcd(a , b);
+     
+    }
+
+    public static Rational sum(Rational a, Rational b){
+	return new Rational((a.num * b.denom) + (b.num * a.denom), (a.denom * b.denom));
+    }
+    
+    public Rational plus(Rational r){
+	return sum(this, r);
+    }
+
+     public static Rational difference(Rational a, Rational b){
+	 return new Rational((a.num * b.denom) - (b.num * a.denom), (a.denom * b.denom));
+    }
+
+    public Rational minus(Rational r){
+	return difference(this, r);
+    }
+
+    public Rational reciprocalOf(){
+	int tempNum = this.num;
+	if(tempNum == 0)
+	    throw new ArithmeticException();
+	int tempDenom = this.denom;
+	return new Rational(tempDenom, tempNum);
+    }
+
+    public static Rational quotient(Rational a, Rational b){
+	Rational temp = b.reciprocalOf();
+	return product(a, temp);
+    }
+    
+    public Rational dividedBy(Rational r){
+	return quotient(this, r);
+    }
     
     /** 
 	For testing getters.  
@@ -63,9 +101,21 @@ public class Rational {
 
     public static void main (String [] args) {
 	Rational r = new Rational(5,7);
+	Rational r2 = new Rational(1,2);
+	Rational r3 = r2.reciprocalOf();
 	System.out.println("r.getNumerator()=" + r.getNumerator());
 	System.out.println("r.getDenominator()=" + r.getDenominator());
+	System.out.println("Testing lcm" + lcm(3,5));
+	System.out.println("Testing sum" + sum(r , r2));
+	System.out.println("Testing plus" + r.plus(r2));
+	System.out.println("Testing minus" + r.minus(r2));
+	System.out.println("Testing difference" + difference(r , r2));
+	System.out.println("Testing reciprocal" + r3.getNumerator() + r3.getDenominator());
+	System.out.println("Testing dividedBy" + r.dividedBy(r2));
+	System.out.println("Testing quotient" + quotient(r , r2));
     }
+
+ 
 
     
 }

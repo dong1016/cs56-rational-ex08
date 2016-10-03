@@ -159,6 +159,149 @@ public class RationalTest {
 	Rational r = Rational.product(r_m3_1,r_1_m3);
 	assertEquals("1",r.toString());
     }
- 
+
+    @Test
+    public void test_lcm_of_3_and_5(){
+	assertEquals(15 , Rational.lcm(3,5));
+    }
+
+    @Test
+    public void test_lcm_of_4_and_6(){
+	assertEquals(12 , Rational.lcm(4,6));
+    }
+
+    @Test
+    public void test_lcm_of_5_and_7(){
+	assertEquals(35 , Rational.lcm(5,7));
+    }
+
+    @Test
+    public void test_sum_of_r_5_15_and_r_24_6(){
+	Rational r = Rational.sum(r_5_15, r_24_6);
+	assertEquals("13/3", r.toString());
+    }
+
+    @Test
+    public void test_sum_of_r_3_7_and_r_13_4(){
+	Rational r = Rational.sum(r_3_7, r_13_4);
+	assertEquals("103/28", r.toString());
+    }
+    
+    @Test
+    public void test_sum_of_r_5_15_and_r_13_4(){
+	Rational r = Rational.sum(r_5_15, r_13_4);
+	assertEquals("43/12", r.toString());
+    }
+    
+    @Test
+    public void test_plus_of_r_5_15_and_r_24_6(){
+	Rational r = r_5_15.plus(r_24_6);
+	assertEquals("13/3", r.toString());
+    }
+
+    @Test
+    public void test_plus_of_r_3_7_and_r_13_4(){
+	Rational r = r_3_7.plus(r_13_4);
+	assertEquals("103/28", r.toString());
+    }
+    
+    @Test
+    public void test_plus_of_r_5_15_and_r_13_4(){
+        Rational r = r_5_15.plus(r_13_4);
+	assertEquals("43/12", r.toString());
+    }
+
+    @Test
+    public void test_difference_of_r_24_6_and_r_5_15(){
+	Rational r = Rational.difference(r_24_6, r_5_15);
+	assertEquals("11/3", r.toString());
+    }
+    
+    @Test
+    public void test_difference_of_r_13_4_and_r_3_7 (){
+	Rational r = Rational.difference(r_13_4, r_3_7);
+	assertEquals("79/28", r.toString());
+    }
+
+    @Test
+    public void test_difference_of_r_24_6_and_r_20_25(){
+	Rational r = Rational.difference(r_24_6, r_20_25);
+	assertEquals("16/5", r.toString());
+    }
+    
+    @Test
+    public void test_minus_of_r_24_6_and_r_5_15(){
+	Rational r = r_24_6.minus(r_5_15);
+	assertEquals("11/3", r.toString());
+    }
+
+    @Test
+    public void test_minus_of_r_13_4_and_r_3_7(){
+	Rational r = r_13_4.minus(r_3_7);
+	assertEquals("79/28", r.toString());
+    }
+    
+    @Test
+    public void test_minus_of_r_24_6_and_r_20_25(){
+	Rational r = r_24_6.minus(r_20_25);
+	assertEquals("16/5", r.toString());
+    }
+    
+    @Test
+    public void test_reciprocalOf_r_5_15(){
+	Rational r = r_5_15.reciprocalOf();
+	assertEquals(5, r.getDenominator());
+	assertEquals(15, r.getNumerator());
+    }
+
+    @Test
+    public void test_reciprocalOf_r_24_6(){
+	Rational r = r_24_6.reciprocalOf();
+	assertEquals(24, r.getDenominator());
+	assertEquals(6, r.getNumerator());
+    }
+
+    @Test
+    public void test_reciprocalOf_r_3_7(){
+	Rational r = r_3_7.reciprocalOf();
+	assertEquals(3, r.getDenominator());
+	assertEquals(7, r.getNumerator());
+    }
+
+    @Test
+    public void test_quotient_of_r_5_15_and_r_24_6(){
+	Rational r = Rational.quotient(r_5_15, r_24_6);
+	assertEquals("1/12", r.toString());
+    }
+
+    @Test
+    public void test_quotient_of_r_3_7_and_r_13_4(){
+	Rational r = Rational.quotient(r_3_7, r_13_4);
+	assertEquals("12/91", r.toString());
+    }
+
+    @Test
+    public void test_quotient_of_r_13_4_and_r_20_25(){
+	Rational r = Rational.quotient(r_13_4, r_20_25);
+	assertEquals("65/16", r.toString());
+    }
+
+    @Test
+    public void test_dividedBy_of_r_5_15_and_r_24_6(){
+	Rational r = r_5_15.dividedBy(r_24_6);
+	assertEquals("1/12", r.toString());
+    }
+    
+    @Test
+    public void test_dividedBy_of_r_3_7_and_r_13_4(){
+	Rational r = r_3_7.dividedBy(r_13_4);
+	assertEquals("12/91", r.toString());
+    }
+
+    @Test
+    public void test_dividedBy_of_r_13_4_and_r_20_25(){
+	Rational r = r_13_4.dividedBy(r_20_25);
+	assertEquals("65/16", r.toString());
+    }
     
 }

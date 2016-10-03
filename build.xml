@@ -50,7 +50,7 @@
   </target>
 
   <property name="javadoc_absolute_path" location="javadoc"/>
-  <property name="public_javadoc_absolute_path" location="../lab01_javadoc_dong1016/javadoc"/>
+  <property name="public_javadoc_absolute_path" location="../../lab01_javadoc_dong1016/javadoc"/>
 
   <target name="javadoc" depends="compile" description="generate javadoc">
     <delete>
@@ -61,7 +61,7 @@
 	<include name="*.java"/>
       </fileset>
       <classpath refid="project.class.path" />
-      <link href="https://docs.oracle.com/javase/8/docs/api/" />          
+      <link href="https://docs.oracle.com/javase/8/docs/api/" />
     </javadoc>
     <echo>
       javadoc written to file://${javadoc_absolute_path}/index.html
